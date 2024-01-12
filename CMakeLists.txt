@@ -36,6 +36,7 @@ option(ENABLE_FUZZING "Fuzz testing using LLVM's libFuzzer" OFF)
 option(ENABLE_GOLD_LINKER "Use GNU gold linker if available" ON)
 option(ENABLE_NODE_BINDINGS "Build NodeJs bindings" OFF)
 option(ENABLE_CLANG_TIDY "Enables clang-tidy checks" OFF)
+option(FORCE_WARNINGS "Force compiler warnings as errors" ON)
 
 if (ENABLE_CLANG_TIDY)
   find_program(CLANG_TIDY_COMMAND NAMES clang-tidy)
@@ -337,6 +338,10 @@ endif()
 
 # Configuring compilers
 include(cmake/warnings.cmake)
+if (FORCE_WARNINGS)
+  include(cmake/apply_warnings.cmake)
+endif ()
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fPIC -fcolor-diagnostics -ftemplate-depth=1024")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
