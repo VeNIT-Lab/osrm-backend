@@ -3,6 +3,8 @@
 
 #include "server/http/compression_type.hpp"
 
+#include <utility>  // This is needed for backward compatibility of std::exchange usage
+
 #include <boost/asio.hpp>
 #include <boost/asio/dispatch.hpp>
 #include <boost/asio/strand.hpp>
