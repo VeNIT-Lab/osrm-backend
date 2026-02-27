@@ -691,7 +691,7 @@ file(GENERATE
      INPUT
      ${PROJECT_BINARY_DIR}/pkgconfig.configured)
 
-install(FILES ${PROJECT_BINARY_DIR}/libosrm.pc DESTINATION ${PKGCONFIG_LIBRARY_DIR}/pkgconfig)
+install(FILES ${PROJECT_BINARY_DIR}/libosrm.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 
 # uninstall target
 configure_file(
