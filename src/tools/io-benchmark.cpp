@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #ifdef __linux__
 #include <malloc.h>
+#include <unistd.h>
 #endif
 #if defined(__FreeBSD__) || defined(__APPLE__)
 #include <unistd.h>
